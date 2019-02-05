@@ -16,13 +16,17 @@ exports.cat = function(msg, args) {
 			msg.reply('Looking for cat gif');
 			gif(msg, args);
 			break;
+		case 'fact':
+			catapi.getFact().then(result => msg.channel.send(result.fact));
+			break;
 		case 'help':
 		default:
 			msg.reply(
-				'Here is a list of my commands.```' +
-					'\npng: @Cat Bot#1855 cat png' +
-					'\njpg: @Cat Bot#1855 cat jpg' +
-					'\ngif: @Cat Bot#1855 cat gif' +
+				'Here is a list of my commands.```md' +
+					'\n1. png:	@Cat Bot#1855 cat png' +
+					'\n2. jpg:	@Cat Bot#1855 cat jpg' +
+					'\n3. gif:	@Cat Bot#1855 cat gif' +
+					'\n4. fact:   @Cat Bot#1855 cat fact' +
 					'```'
 			);
 	}
