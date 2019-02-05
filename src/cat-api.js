@@ -33,6 +33,19 @@ exports.getImage = function(sub_id, type, breeds) {
 	});
 };
 
+exports.getFact = function() {
+	return new Promise(async function(resolve, reject) {
+		webRequest('https://catfact.ninja/fact', null).then(
+			result => {
+				resolve(result);
+			},
+			error => {
+				reject(error);
+			}
+		);
+	});
+};
+
 function webRequest(_url, headers) {
 	return new Promise(function(resolve, reject) {
 		try {
