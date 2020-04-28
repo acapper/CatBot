@@ -9,4 +9,4 @@ COPY package.json .
 
 RUN npm i
 
-ENTRYPOINT ["sh", "-c", "npm start"]
+CMD [ "npm", "start", ">>", "catbot.log" ]
