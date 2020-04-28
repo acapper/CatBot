@@ -1,5 +1,5 @@
 # base image
-FROM node:current-slim
+FROM node:current-slim as build
 
 WORKDIR /catbot
 
@@ -9,4 +9,4 @@ COPY package.json .
 
 RUN npm i
 
-RUN npm start
+ENTRYPOINT ["sh", "-c", "npm start"]
