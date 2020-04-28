@@ -1,8 +1,13 @@
-const cat = require('./cat-commands');
+const catcommands = require('./cat-commands');
+const timercommands = require('./timer-commands');
 
 const prefix = '!';
 
 var exports = (module.exports = {});
+
+const ping = 'ping';
+const cat = 'cat';
+const timer = 'timer';
 
 exports.prescan = function(msg, client, args) {
 	if (msg.author.bot) return false;
@@ -16,13 +21,19 @@ exports.prescan = function(msg, client, args) {
 
 exports.all = function(msg, args) {
 	switch (args[0]) {
-		case 'ping':
-		case prefix + 'ping':
+		case ping:
+		case prefix + ping:
 			msg.reply('pong');
 			break;
-		case 'cat':
-		case prefix + 'cat':
-			cat.cat(msg, args);
+
+		case cat:
+		case prefix + cat:
+			catcommands.cat(msg, args);
+			break;
+
+		case timer:
+		case prefix + timer:
+			timercommands.timer(msg, args);
 			break;
 		default:
 			msg.reply('Command not found');
