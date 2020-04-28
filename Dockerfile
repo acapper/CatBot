@@ -15,7 +15,7 @@ RUN nexe src/main.js
 
 
 # base image
-FROM ubuntu:16.04 as production
+FROM debian:stable as production
 
 WORKDIR /catbot
 
