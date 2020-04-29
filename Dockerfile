@@ -11,4 +11,4 @@ RUN npm i
 
 CMD [ "npm", "start", ">>", "catbot.log" ]
 
-ENTRYPOINT [ "sh", "-c" ]
+ENTRYPOINT [ "/bin/bash" ]
